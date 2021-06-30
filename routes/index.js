@@ -7,3 +7,17 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+router.get('/nosotros', (req, res) => {
+  res.render('pages/nosotros');
+});
+
+
+router.get('/contacto', (req, res) => {
+  res.render('pages/contacto');
+});
+
+
+
+
+module.exports = router;
