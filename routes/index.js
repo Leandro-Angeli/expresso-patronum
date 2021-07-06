@@ -20,10 +20,14 @@ router.get('/agregar', async (req, res) => {
   const authors = await api.getAutor();
 
   res.render('pages/agregar',{title:'Agregar', authors});
+ 
 });
 
-router.post('/agregar_proceso', (req, res) => {
-  res.send(req.body);
+router.post('/agregar_proceso', async(req, res) => {
+  const {titulo,precio,autor,portada}=req.body;
+  const book = await api.addBook(titulo,precio,autor,portada)
+  const books = await api.getBooks();
+  res.render('index', { title: 'Libro agregado',books});
 });
 
 router.get('/autores',async (req, res) => {

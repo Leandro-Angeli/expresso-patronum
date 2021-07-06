@@ -43,9 +43,22 @@ const findBookByTitle = async(query)=>{
     return books;
 }
 
+const addBook = async(titulo,precio,autorId,portada) =>{
+    const book = await db.libro.create({
+        titulo,
+        precio,
+        portada,
+        autorId
+
+    });
+
+    return  book;
+}
+
 module.exports = {
     getBooks,
     getAutor,
     getBookById,
-    findBookByTitle
+    findBookByTitle,
+    addBook
 }
