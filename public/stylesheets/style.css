@@ -13,3 +13,16 @@ nav ul{display: flex;
   list-style: none;
   
  }
+
+ .form-agregar{    display: flex;
+                  flex-direction: column;
+                  max-width: 60%;
+                  gap: .5rem;
+
+  }
+
+  .form-agregar label{display:block;
+
+  }
+  .form-agregar input{width:70%;    
+   }

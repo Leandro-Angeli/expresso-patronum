@@ -10,6 +10,34 @@
 <body>
     <%- include('../partials/nav') %>
     <h1><%= title %></h1>
-    
+
+
+    <form action="agregar_proceso" method='POST' class='form-agregar'>
+        <label for="titulo">
+            Titulo
+            <input type="text" name='titulo'>
+        </label>
+         
+         <label for="precio">
+            Precio: 
+            <input type="number" name='precio'>
+         </label>  
+         Autor:
+         <select name="" id="">
+            <% authors.forEach(autor => { %>
+               <option value="<%= autor.id %>"><%= autor.nombreCompleto %></option>
+                <% })%>
+            
+         </select>
+         </label>  
+         <label for="portada">
+            Portada: 
+            <input type="text" name='portada'>
+         </label> 
+         <input type="submit" value="agregar"> 
+    </form>
+
+
+
 </body>
 </html>
