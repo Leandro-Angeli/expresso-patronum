@@ -11,5 +11,14 @@
     <p>Welcome to <%= title %></p>
 
     <img src="/images/gun.jpg" alt="foto" srcset="">
+
+
+    <ul class="listado" >
+        <% books.forEach(book =>{%>
+        <li>     <a href="/libro/<%= book.id %>"> <%= book.titulo %></a></li>
+        <%})%>
+    </ul>
   </body>
+
+
 </html>
