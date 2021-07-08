@@ -32,12 +32,22 @@ router.post('/agregar_proceso', async(req, res) => {
 
 router.get('/autores',async (req, res) => {
   const allAutor = await api.getAutor();
-  console.log(allAutor);
+  // console.log(allAutor);
   res.send(allAutor);
 });
 
 router.get('/contacto', (req, res) => {
   res.render('pages/contacto');
+});
+
+router.get('/prueba',async (req, res) => {
+  const autores = await api.getAutor();
+  const books = await api.getBooks();
+ 
+ 
+  res.render('pages/prueba',{title:'Probando',autores,books,});
+  
+  
 });
 
 router.get('/libro/:id',async (req,res) =>{
@@ -51,6 +61,18 @@ router.get('/buscar',async (req,res) =>{
    res.render('index',{ title: 'Resultado de la Busqueda',books});
 
 })
+
+router.get('/eliminar/:id', async(req,res) =>{
+  const affectedRows = await api.deleteBookById (req.params.id);
+  if(affectedRows >0){
+    const books = await api.getBooks();
+    res.redirect('/')
+  }
+  else{
+    res.send('Error');
+  }
+
+});
 // router.get('/libros',(req,res)=>{
 // res.render('pages/libros');
 

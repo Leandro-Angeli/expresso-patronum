@@ -11,12 +11,14 @@ const getBooks = async()=>{
 
 
 const getAutor = async()=>{
-    const autor = await db.autor.findAll()
+    const autor = await db.autor.findAll({include: db.libro})
         .then (result =>{
             return result;
         });
     return autor;
 }
+
+
 
 const getBookById = async (id) => {
     // SELECT * FROM libro WHERE id = id
@@ -55,10 +57,22 @@ const addBook = async(titulo,precio,autorId,portada) =>{
     return  book;
 }
 
+
+const deleteBookById = async (idLibro)=>{
+    const book = await db.libro.destroy({
+        where : {
+            id:idLibro
+        }
+    });
+
+    return book;
+
+}
 module.exports = {
     getBooks,
     getAutor,
     getBookById,
     findBookByTitle,
-    addBook
+    addBook,
+    deleteBookById
 }

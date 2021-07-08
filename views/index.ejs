@@ -15,7 +15,10 @@
 
     <ul class="listado" >
         <% books.forEach(book =>{%>
-        <li>     <a href="/libro/<%= book.id %>"> <%= book.titulo %></a></li>
+        <li>     <a href="/libro/<%= book.id %>"> <%= book.titulo %></a>
+          <a href="/eliminar/<%= book.id %>"> Eliminar Libro</a>
+        </li>
+        
         <%})%>
     </ul>
   </body>
